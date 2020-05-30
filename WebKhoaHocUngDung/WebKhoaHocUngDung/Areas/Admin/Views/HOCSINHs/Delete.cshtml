@@ -1,0 +1,86 @@
+﻿@model WebKhoaHocUngDung.Models.HOCSINH
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="color:red">BẠN CÓ CHẮC MUỐN XÓA HỌC VIÊN NÀY?</h2>
+<div class="col-xl-12 col-lg-7 mb-4">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            Ngày sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            Giới tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            Khối
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Khoi)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            Số điện thoại phụ huynh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDTPH)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            Ngày vào học
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayVaoHoc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="m-0 float-md-none btn btn-danger btn-sm" /> |
+            @Html.ActionLink("Quay trở lại danh sách", "Index")
+        </div>
+    }
+</div>

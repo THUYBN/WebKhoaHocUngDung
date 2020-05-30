@@ -1,0 +1,274 @@
+﻿@using Microsoft.AspNet.Identity
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/images/logo.png" rel="icon">
+    <title>Trung tâm BDVH khoa học trải nghiệm</title>
+
+    <!-- Custom-Files -->
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css"> <!-- Bootstrap-CSS -->
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css"> <!-- Style-CSS -->
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet"> <!-- Font-Awesome-Icons-CSS -->
+    <!-- //Custom-Files -->
+    <!-- Web-Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
+    <!-- //Web-Fonts -->
+</head>
+
+<body>
+    <div id="page" class="page">
+        <!-- header -->
+        <!-- //header -->
+        <!-- banner -->
+        <!-- //banner -->
+        <!-- banner bottom -->
+        <!-- //banner bottom -->
+        <!-- what -->
+        <!-- //what -->
+        <!-- courses -->
+        <!-- //places -->
+        <!-- stats section -->
+        <!-- //stats section -->
+        <!-- events -->
+        <!-- //events -->
+        <!-- gallery -->
+        <!-- //gallery -->
+        <!-- testimonials -->
+        <!-- //testimonials -->
+        <!-- apps -->
+        <!-- //apps -->
+        <!-- contact-->
+        <!-- //contact -->
+        <!-- footer -->
+        <!-- //footer -->
+        <!-- copyright -->
+        <!-- //copyright -->
+        <!-- move top icon -->
+        <!-- //move top icon --><!-- header -->
+        <header class="editContent">
+            <div class="container">
+                <div class="header d-lg-flex justify-content-between align-items-center py-2 px-sm-2 px-1">
+                    <!-- logo -->
+                    <div id="logo">
+                        <nav>
+                            <ul class="menu">
+                                <li class="logohome">
+                                    <a href="@Url.Action("Index", "Home")"><img src="~/Content/images/logo.png" width="100px" height="100px"></a>
+                                </li>
+                                <li class="text1">
+                                    <h6>
+                                        <a href="@Url.Action("Index", "Home")" class="editContent">
+                                            TRUNG TÂM BDVH
+                                            <br>KHOA HỌC TRẢI NGHIỆM
+                                         </a>
+                                    </h6>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- //logo -->
+                    <!-- nav -->
+                    <div class="nav_w3ls ml-lg-5">
+                        <nav class="text2">
+                            <label for="drop" class="toggle">Menu</label>
+                            <input type="checkbox" id="drop">
+                            <ul class="menu">
+                                <li><a href="@Url.Action("Index", "Home")" style="outline: none; cursor: inherit;">Trang chủ</a></li>
+                                <li><a href="@Url.Action("Index", "Home")#about" style="outline: none; cursor: inherit;">Giới thiệu</a></li>
+                                <li>
+                                    <!-- First Tier Drop Down -->
+                                    <label for="drop-2" class="toggle toogle-2">
+                                        Pages <span class="fa fa-angle-down" aria-hidden="true" style="outline: none; cursor: inherit;"></span>
+                                    </label>
+                                    <a href="#">Trang <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                    <input type="checkbox" id="drop-2">
+                                    <ul>
+                                        <li><a href="@Url.Action("Index", "Home")#what" class="drop-text" style="outline: none; cursor: inherit;">Những gì chúng tôi đã có</a></li>
+                                        <li><a href="@Url.Action("Index", "Home")#courses" class="drop-text" style="outline: none; cursor: inherit;">Một vài khóa học</a></li>
+                                        <li><a href="@Url.Action("Index", "Home")#stats" class="drop-text" style="outline: none; cursor: inherit;">Thống kê</a></li>
+                                        <li><a href="@Url.Action("Index", "Home")#gallery" class="drop-text" style="outline: none; cursor: inherit;">Hình ảnh</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#contact">Liên hệ</a></li>
+                                @if (Request.IsAuthenticated)
+                                {
+                                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                            <li class="text3">
+                                                <label for="drop-2" class="toggle toogle-2">
+                                                    @*@Html.ActionLink(User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" }) <span class="fa fa-angle-down" aria-hidden="true" style="outline: none; cursor: inherit;"></span>*@
+                                                </label>
+                                                <a href="#">@Html.ActionLink(User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" }) <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                                <input type="checkbox" id="drop-2">
+                                                <ul>
+                                                    <li><a href="javascript:document.getElementById('logoutForm').submit()" class="drop-text">Đăng xuất</a></li>
+                                                </ul>
+                                                
+                                            </li>        
+                                    }
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Login", "Account")">Đăng nhập</a></li>
+                                    <li><a href="@Url.Action("Register", "Account")" style="outline: none; cursor: inherit;">Đăng ký</a></li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- //nav -->
+                </div>
+            </div>
+        </header>
+        <!-- //header -->
+
+
+        @RenderBody()
+        @RenderSection("Scripts", false)
+        <!-- footer -->
+        <footer class="py-5 editContent" style="outline: none; outline-offset: -2px; cursor: inherit;">
+            <div class="container py-xl-4 py-lg-3">
+                <div class="row footer-grids">
+                    <div class="col-lg-2 col-6 mb-4 footer-grid editContent" style="outline: none; cursor: inherit;">
+                        <h3 class="editContent mb-sm-4 mb-3" style="outline: none; cursor: inherit;">Danh mục</h3>
+                        <ul class="list-unstyled footer">
+                            <li>
+                                <a href="@Url.Action("Index", "Home")" style="outline: none; cursor: inherit;">Trang chủ</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Home")#about" style="outline: none; cursor: inherit;">Giới thiệu</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Home")#what" style="outline: none; cursor: inherit;">Những gì đã chúng tôi đã tạo ra</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Home")#gallery" style="outline: none; cursor: inherit;">Hình ảnh</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-6 footer-grid footer-contact mb-4 editContent" style="outline: none; cursor: inherit;">
+                        <h3 class="editContent mb-sm-4 mb-3" style="outline: none; cursor: inherit;">Liên hệ trực tiếp</h3>
+                        <ul class="list-unstyled footer">
+                            <li>
+                                +01(24) 8543 8088
+                            </li>
+                            <li>
+                                <a href="mailto:info@example.com" style="outline: none; cursor: inherit;">info@example.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-6 footer-grid mb-4 text-lg-right editContent">
+                        <ul class="list-unstyled footer">
+                            <li>
+                                <a href="@Url.Action("Index", "Home")#stats">Thống kê</a>
+                            </li>
+                            <li>
+                                @if (Request.IsAuthenticated)
+                                {
+                                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <li class="text3">
+                                            
+                                            <ul>
+                                                <li><a href="javascript:document.getElementById('logoutForm').submit()" class="drop-text">Đăng xuất</a></li>
+                                            </ul>
+
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Login", "Account")">Đăng nhập</a></li>
+                                    <li><a href="@Url.Action("Register", "Account")" style="outline: none; cursor: inherit;">Đăng ký</a></li>
+                                }
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Home")#contact" style="outline: none; cursor: inherit;">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 footer-grid mb-4 editContent" style="outline: none; cursor: inherit;">
+                        <div class="footer-logo">
+                            <h2 class="text-lg-center text-center">
+                                <a class="logo text-wh font-weight-bold editContent" href="index.html" style="outline: none; cursor: inherit;">
+                                    Trung tâm BDVH Khoa học trải nghiệm
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //footer -->
+        <!-- copyright -->
+        <div class="copyright-w3ls py-4">
+            <div class="container">
+                <div class="row">
+                    <!-- copyright -->
+                    <p class="col-lg-8 copy-right-grids text-wh text-lg-left text-center mt-lg-2">
+                        © 2020 
+                    </p>
+                    <!-- //copyright -->
+                    <!-- social icons -->
+                    <div class="col-lg-4 w3social-icons text-lg-right text-center mt-lg-0 mt-3 editContent">
+                        <ul>
+                            <li>
+                                <a href="#" class="rounded-circle editContent">
+                                    <span class="fa fa-facebook-f"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="rounded-circle editContent">
+                                    <span class="fa fa-google-plus"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="rounded-circle editContent">
+                                    <span class="fa fa-twitter"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="rounded-circle editContent">
+                                    <span class="fa fa-dribbble"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //social icons -->
+                </div>
+            </div>
+        </div>
+        <!-- //copyright -->
+        <!-- move top icon -->
+        <a href="#home" class="move-top text-center editContent">
+            <span class="fa fa-angle-double-up" aria-hidden="true"></span>
+        </a>
+        <!-- //move top icon -->
+    </div><!-- /#page -->
+
+
+</body>
+</html>
+
+<style>
+    .logohome
+    {
+        margin-left: -120px;
+        margin-top: -10px;
+    }
+    .text1
+    {
+        margin-top: -3px;
+        margin-left: -30px;
+    }
+    .text2 {
+        margin-right: -150px;
+        width: 700px;
+    }
+    .text3 {
+        margin-left: -30px;
+    }
+</style>

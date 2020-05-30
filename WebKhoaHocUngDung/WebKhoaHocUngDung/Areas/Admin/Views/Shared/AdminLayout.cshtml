@@ -1,0 +1,177 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="~/Content/images/logo.png" rel="icon">
+    <title>Trung tâm BDVH khoa học trải nghiệm</title>
+    <link href="~/Areas/Admin/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Areas/Admin/Content/css/ruang-admin.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index", "HomeAdmin")">
+                <div class="sidebar-brand-icon">
+                    <img src="~/Content/images/logo.png">
+                </div>
+                <div class="sidebar-brand-text mx-1">Trung tâm BDVH Khoa học trải nghiệm</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Bảng điều khiển</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Quản lý
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "HOCSINHs")">
+                    <i class="fa fa-graduation-cap"></i>
+                    <span>Học viên</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="forms.html">
+                    <i class="fa fa-user"></i>
+                    <span>Giáo viên</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ui-colors.html">
+                    <i class="fa fa-users"></i>
+                    <span>Nhân viên</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+                   aria-controls="collapseTable">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Lớp học</span>
+                </a>
+                <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="simple-tables.html">Khối 10</a>
+                        <a class="collapse-item" href="simple-tables.html">Khối 11</a>
+                        <a class="collapse-item" href="datatables.html">Khối 12</a>
+                    </div>
+                </div>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Điểm danh và chấm công
+            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#">
+                    <i class="fas fa-fw fa-columns"></i>
+                    <span>Điểm danh buổi học</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fa fa-calculator"></i>
+                    <span>Chấm công ngoài giờ</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Đánh giá
+            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#">
+                    <i class="fab fa-fw fa-wpforms"></i>
+                    <span>Đánh giá mỗi buổi học</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fa fa-folder"></i>
+                    <span>Đánh giá cuối tháng</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Công nợ
+            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#">
+                    <i class="fa fa-paperclip"></i>
+                    <span>Học phí</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fa fa-paperclip"></i>
+                    <span>Lương giáo viên</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Sidebar -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <!-- TopBar -->
+                <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+                    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <ul class="navbar-nav ml-auto">
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle" src="~/Areas/Admin/Content/img/boy.png" style="max-width: 60px">
+                                <span class="ml-2 d-none d-lg-inline text-white small">Maman Ketoprak</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">                               
+                                <a class="dropdown-item" href="login.html">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Topbar -->
+                @RenderBody()
+                
+            </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>
+                            copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script>
+                        </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer -->
+        </div>
+    </div>
+
+    <!-- Scroll to top -->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <script src="~/Areas/Admin/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Areas/Admin/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Areas/Admin/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Areas/Admin/Content/js/ruang-admin.min.js"></script>
+    <script src="~/Areas/Admin/Content/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/Areas/Admin/Content/js/demo/chart-area-demo.js"></script>
+</body>
+
+</html>
