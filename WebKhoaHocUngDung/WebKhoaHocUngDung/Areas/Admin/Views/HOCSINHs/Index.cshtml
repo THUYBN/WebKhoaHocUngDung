@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebKhoaHocUngDung.Models.HOCSINH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<div class="input-group">
+    <input type="text" class="form-control bg-light border-1 small" placeholder="Nhập thông tin học viên muốn tìm kiếm?"
+        aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button">
+        <i class="fas fa-search fa-sm"></i>
+        </button>
+    </div>
+</div>
+        
+    <br />
+
+
+<h2 style="color:blue"><b>DANH SÁCH HỌC VIÊN</b></h2>
+
+<p class="m-0 float-md-none btn btn-success btn-sm">
+    @Html.ActionLink("Thêm học viên", "Create")
+</p>
+<div class="col-xl-12 col-lg-7 mb-4">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    Họ tên
+                </th>
+                <th>
+                    Ngày sinh
+                </th>
+                <th>
+                    Giới tính
+                </th>
+                <th>
+                    Khối
+                </th>
+                <th>
+                    SĐT
+                </th>
+                <th>
+                    SĐTPH
+                </th>
+                <th>
+                    Địa chỉ
+                </th>
+                <th>
+                    Ngày vào học
+                </th>
+                <th>
+                    Thao tác
+                </th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgaySinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioiTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Khoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDTPH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayVaoHoc)
+                </td>
+                <td>
+                    <li class="btn btn-sm btn-dark">@Html.ActionLink("Edit", "Edit", new { id = item.MaHS}) </li><br />
+                    <li class="btn btn-sm btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.MaHS })</li>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

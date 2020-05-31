@@ -1,0 +1,82 @@
+﻿@model WebKhoaHocUngDung.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @*<h4>Create a new account.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>*@
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="inner-banner-w3ls py-5 bg bg1" id="home" style="outline: none; cursor: inherit;">
+        <div class="container py-xl-5 py-lg-3">
+            <!-- register  -->
+            <div class="modal-body mt-md-2 mt-5">
+                <h3 class="editContent title-w3 mb-5 text-center text-wh font-weight-bold">Register Now</h3>
+                <form action="#" method="post">
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Username</label>
+                        <input type="text" class="form-control" placeholder="your name" name="Name" required="">
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Email</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @*<input type="email" class="form-control" placeholder="loremipsum@email.com" name="Email" required="">*@
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Password</label>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Confirm Password</label>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
+                    </div>
+                    <div class="sub-w3l my-3">
+                        <div class="sub-w3layouts_hub">
+                            <input type="checkbox" id="brand1" value="">
+                            <label for="brand1" class="text-li text-style-w3ls editContent">
+                                <span></span>I Accept to the Terms &amp; Conditions
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn button-style-w3" style="outline: none; outline-offset: -3px; cursor: inherit;">Register</button>
+                </form>
+            </div>
+            <!-- //register -->
+        </div>
+    </div>
+    <!-- //inner banner -->
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

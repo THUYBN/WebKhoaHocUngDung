@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "_Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    @*<meta name="viewport" content="width=device-width" />*@
+    @*Chèn file css - javascript*@
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+    @*<link href="~/Content/css/bootstrap-responsive.min.css" rel="stylesheet" />*@
+    <link href="~/Content/css/style-responsive.css" rel="stylesheet" />
+    @*<link href="~/Content/TemplateAdmin/css/style.css" rel="stylesheet" />*@
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    
+        <div class="container-fluid-full">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="row-fluid">
+                <!-- start: Main Menu -->
+                <div id="sidebar-left" class="span2">
+                    <div class="a">
+                        @*@Html.Partial("Profile")*@
+                        @User.Identity.Name
+                    </div>
+                    <div class="nav-collapse sidebar-nav">
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+                            <li><a href="@Url.Action("Index", "Manage")"><i class="fa fa-user"></i>  Thông tin cá nhân </a></li>
+                            <li><a href="@Url.Action("Index", "Manage")"><i class="fa fa-calendar"></i>  Thời khóa biểu     </a><br />
+                            <a href="@Url.Action("Index", "Manage")"><i class="fa fa-paperclip"></i>  Công nợ </a><br />
+                            <a href="@Url.Action("Index", "Manage")"><i class="fa fa-calendar-check-o"></i> Điểm danh </a></li>
+                            <li><a href="@Url.Action("Index", "Manage")"><i class="fab fa-fw fa-wpforms"></i>  Đánh giá buổi học </a></li>
+                            <li><a href="@Url.Action("Index", "Manage")"><i class="fa fa-folder"></i>  Đánh giá cuối tháng </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+                <!-- start: Content -->
+                <div id="content" class="span10">
+                    @RenderBody()
+                    @RenderSection("Scripts", false)
+
+                </div><!--/.fluid-container-->
+                <!-- end: Content -->
+            </div><!--/#content.span10-->
+        </div><!--/fluid-row-->
+        
+
+
+<script src="~/Content/js/jquery-1.9.0.min.js"></script>
+
