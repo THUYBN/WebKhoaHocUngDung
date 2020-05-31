@@ -1,0 +1,52 @@
+﻿@model WebKhoaHocUngDung.Models.GIAOVIEN
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="color:red">BẠN CÓ CHẮC MUỐN XÓA GIÁO VIÊN NÀY?</h2>
+<div class="col-xl-12 col-lg-7 mb-4">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ tên giáo viên
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HoTenGV)
+        </dd>
+        <dt>
+            Ngày sinh
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+        <dt>
+            Giới tính
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phai)
+        </dd>
+        <dt>
+            Số điện thoại
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SDTGV)
+        </dd>
+        <dt>
+            Địa chỉ
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="m-0 float-md-none btn btn-danger btn-sm" /> |
+            @Html.ActionLink("Quay trở lại danh sách", "Index")
+        </div>
+    }
+</div>
