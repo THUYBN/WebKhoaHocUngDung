@@ -13,6 +13,7 @@ namespace WebKhoaHocUngDung.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -64,13 +65,23 @@ namespace WebKhoaHocUngDung.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            var user = db.HOCSINHs.Where(x => x.ApplicationUserId == userId).FirstOrDefault();
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+
+                HoTen = user.HoTen,
+                NgaySinh = user.NgaySinh,
+                SDT = user.SDT,
+                SDTPH = user.SDTPH,
+                GioiTinh = user.GioiTinh,
+                DiaChi = user.DiaChi,
+                Khoi = user.Khoi
+                
             };
             return View(model);
         }

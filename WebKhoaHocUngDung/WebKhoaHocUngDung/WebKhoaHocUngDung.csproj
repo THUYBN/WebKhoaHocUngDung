@@ -46,6 +46,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -170,8 +176,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CT_LOPHOCController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GIAOVIENsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HOCPHIsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HOCSINHsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LOPHOCsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageRoleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageUserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MONHOCsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -1841,6 +1854,7 @@
     <Content Include="Content\images\p3.jpg" />
     <Content Include="Content\images\p4.jpg" />
     <Content Include="Content\images\te1.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -2030,6 +2044,38 @@
     <Content Include="Areas\Admin\Views\HOCSINHs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HOCSINHs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HOCSINHs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageUser\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageRole\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageRole\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageRole\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageUser\EditRole.cshtml" />
+    <Content Include="Areas\Admin\Views\HOCSINHs\CreateUser.cshtml" />
+    <Content Include="Areas\Admin\Views\GIAOVIENs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GIAOVIENs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GIAOVIENs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\GIAOVIENs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GIAOVIENs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GIAOVIENs\CreateUser.cshtml" />
+    <Content Include="Areas\Admin\Views\MONHOCs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MONHOCs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MONHOCs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\MONHOCs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MONHOCs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HOCPHIs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HOCPHIs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HOCPHIs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HOCPHIs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HOCPHIs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LOPHOCs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LOPHOCs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LOPHOCs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LOPHOCs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LOPHOCs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CT_LOPHOC\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CT_LOPHOC\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CT_LOPHOC\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CT_LOPHOC\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CT_LOPHOC\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2082,6 +2128,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

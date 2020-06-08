@@ -1,0 +1,35 @@
+﻿@model WebKhoaHocUngDung.Models.MONHOC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MONHOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KHOI.TenKhoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHOI.TenKhoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenMonHoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMonHoc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaMonHoc }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

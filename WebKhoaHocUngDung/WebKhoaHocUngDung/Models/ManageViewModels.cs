@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -12,6 +13,29 @@ namespace WebKhoaHocUngDung.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public string Email { get; set; }
+        [StringLength(50)]
+        public string HoTen { get; set; }
+
+        public DateTime? NgaySinh { get; set; }
+
+        [StringLength(3)]
+        public string GioiTinh { get; set; }
+
+        public int? Khoi { get; set; }
+
+        [StringLength(10)]
+        public string SDT { get; set; }
+
+        [StringLength(10)]
+        public string SDTPH { get; set; }
+
+        [StringLength(50)]
+        public string DiaChi { get; set; }
+
+        public DateTime NgayVaoHoc { get; set; }
+
+        public bool? TinhTrang { get; set; }
     }
 
     public class ManageLoginsViewModel

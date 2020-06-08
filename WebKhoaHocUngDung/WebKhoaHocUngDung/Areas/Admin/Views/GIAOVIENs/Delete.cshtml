@@ -1,0 +1,19 @@
+﻿@model WebKhoaHocUngDung.Models.GIAOVIEN
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="text-center">
+    <h2 style="color:red">Bạn có chắc muốn xóa giáo viên @Model.HoTenGV?</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Chấp nhận" class="m-0 float-md-none btn btn-danger btn-sm" /> |
+            @Html.ActionLink("Quay trở lại danh sách", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,32 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<div class="row">
+
+    <div class="col-md-12 ">
+        <div class="text-center">
+
+            <h5>Bạn có chắc muốn xóa quyền @Model.Name ? </h5>
+
+            @using (Html.BeginForm())
+
+            {
+
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                <button type="submit" class="m-0 float-md-none btn btn-danger btn-sm">Chấp nhận</button>
+                <a href="@Url.Action("Index")" >Trở lại</a>
+
+            }
+
+        </div>
+
+    </div>
+
+</div>
+

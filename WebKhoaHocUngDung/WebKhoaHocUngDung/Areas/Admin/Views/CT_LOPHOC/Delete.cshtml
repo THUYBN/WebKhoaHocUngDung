@@ -1,0 +1,19 @@
+﻿@model WebKhoaHocUngDung.Models.CT_LOPHOC
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="text-center">
+    <h2 style="color:red">Bạn có chắc muốn xóa học viên @Model.HoTen khỏi lớp này không?</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Chấp nhận" class="m-0 float-md-none btn btn-danger btn-sm" /> |
+            @Html.ActionLink("Quay trở lại danh sách", "Index")
+        </div>
+    }
+</div>

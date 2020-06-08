@@ -1,4 +1,4 @@
-namespace WebKhoaHocUngDung.Models
+﻿namespace WebKhoaHocUngDung.Models
 {
     using System;
     using System.Collections.Generic;
@@ -22,20 +22,28 @@ namespace WebKhoaHocUngDung.Models
         [Key]
         public int MaLop { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
         [StringLength(100)]
         public string TenLop { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
         public int? SiSo { get; set; }
 
         public int? MaGV { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
+        [DataType(DataType.Date)]
         public DateTime? NgayBD { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
+        [DataType(DataType.Date)]
         public DateTime? NgayKT { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
+        [DataType(DataType.Date)]
         public DateTime? NgayMoLop { get; set; }
 
-        public bool? TrangThai { get; set; }
+        public bool TrangThai { get; set; }
 
         public int? MaHP { get; set; }
 
@@ -52,6 +60,8 @@ namespace WebKhoaHocUngDung.Models
         public virtual ICollection<DANHGIACUOITHANG> DANHGIACUOITHANGs { get; set; }
 
         public virtual HOCPHI HOCPHI { get; set; }
+
+        public virtual GIAOVIEN GIAOVIEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THOIKHOABIEU> THOIKHOABIEUx { get; set; }

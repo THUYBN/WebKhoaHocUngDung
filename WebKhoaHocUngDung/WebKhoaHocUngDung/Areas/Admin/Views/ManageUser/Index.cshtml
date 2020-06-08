@@ -1,0 +1,52 @@
+﻿@using WebKhoaHocUngDung.Models;
+@model IEnumerable<ApplicationUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="color:blue"><b>QUẢN LÝ NGƯỜI DÙNG</b></h2>
+
+<div class="col-xl-12 col-lg-7 mb-4">
+
+    <div class="col-sm-6">
+        <table class="table align-items-center table-flush">
+
+            <thead class="thead-light">
+
+                <tr>
+                    <th>Email</th>
+                    <th> Thao tác</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+
+                {
+
+                    <tr>
+
+                        <td>@item.Email</td>
+
+                        <td >
+                            <li class="btn btn-sm btn-dark">@Html.ActionLink("Sửa quyền", "EditRole", new { Id = item.Id }, null) </li>
+
+                        </td>
+
+                    </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+

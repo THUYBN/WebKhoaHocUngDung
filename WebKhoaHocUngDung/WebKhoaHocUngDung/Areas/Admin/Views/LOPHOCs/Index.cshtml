@@ -1,0 +1,105 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebKhoaHocUngDung.Models.LOPHOC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="input-group">
+    <input type="text" class="form-control bg-light border-1 small" placeholder="Nhập thông tin lớp học muốn tìm kiếm?"
+           aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+        </button>
+    </div>
+</div>
+
+<br />
+
+
+<h2 style="color:blue" class="text-center"><b>DANH SÁCH LỚP HỌC</b></h2>
+
+
+<p class="m-0 float-md-none btn btn-success btn-sm">
+    @Html.ActionLink("Thêm lớp học", "Create")
+
+</p>
+<br /><br />
+<div class="col-xl-12 col-lg-7 mb-4">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    Lớp
+                </th>
+                <th>
+                    Sĩ số
+                </th>
+                <th>
+                    Giáo viên
+                </th>
+                <th>
+                    Ngày bắt đầu
+                </th>
+                <th>
+                    Ngày kết thúc
+                </th>
+                <th>
+                    Ngày mở lớp
+                </th>
+                <th>
+                    Trạng thái
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenLop)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SiSo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIAOVIEN.HoTenGV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayBD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayKT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayMoLop)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrangThai @*== true ? "Đang học" : "Kết thúc"*@)
+                </td>
+                <td>
+                    <li class="btn btn-sm btn-info" ><a href="@Url.Action("Index", "CT_LOPHOC", new { id = item.MaLop})">Chi tiết</a></li>
+                    @*<li class="btn btn-sm btn-info">@Html.ActionLink("Chi tiết", "Index", "CT_LOPHOC", new { id = item.MaLop }) </li>*@
+                    <li class="btn btn-sm btn-dark">@Html.ActionLink("Sửa", "Edit", new { id = item.MaLop }) </li><br />
+                    <li class="btn btn-sm btn-danger">@Html.ActionLink("Xóa", "Delete", new { id = item.MaLop })</li>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+@*Create page link*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuPage li {
+        display: inline;
+    }
+</style>

@@ -1,4 +1,4 @@
-namespace WebKhoaHocUngDung.Models
+﻿namespace WebKhoaHocUngDung.Models
 {
     using System;
     using System.Collections.Generic;
@@ -20,28 +20,39 @@ namespace WebKhoaHocUngDung.Models
         [Key]
         public int MaHS { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
         [StringLength(50)]
         public string HoTen { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
+        [DataType(DataType.Date)]
         public DateTime? NgaySinh { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
         [StringLength(3)]
         public string GioiTinh { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
         public int? Khoi { get; set; }
 
-        [StringLength(10)]
+        [Required(ErrorMessage = "Không được để trống")]
+        [RegularExpression(@"^([\(]{1}[0-9]{3}[\)]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$", ErrorMessage = "Số điện thoại phải đủ 10 chữ số")]
+        [StringLength(10, ErrorMessage ="Số điện thoại không quá 10 chữ số")]
         public string SDT { get; set; }
 
-        [StringLength(10)]
+        [Required(ErrorMessage = "Không được để trống")]
+        [RegularExpression(@"^([\(]{1}[0-9]{3}[\)]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$", ErrorMessage = "Số điện thoại phải đủ 10 chữ số")]
+        [StringLength(10, ErrorMessage = "Số điện thoại không quá 10 chữ số")]
         public string SDTPH { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
         [StringLength(50)]
         public string DiaChi { get; set; }
 
         public DateTime? NgayVaoHoc { get; set; }
 
         public bool? TinhTrang { get; set; }
+        public string ApplicationUserId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONGNO> CONGNOes { get; set; }

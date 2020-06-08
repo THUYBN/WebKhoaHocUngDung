@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="forms.html">
+                <a class="nav-link" href="@Url.Action("Index", "GIAOVIENs")">
                     <i class="fa fa-user"></i>
                     <span>Giáo viên</span>
                 </a>
@@ -62,11 +62,17 @@
                 </a>
                 <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="simple-tables.html">Khối 10</a>
-                        <a class="collapse-item" href="simple-tables.html">Khối 11</a>
-                        <a class="collapse-item" href="datatables.html">Khối 12</a>
+                        <h6 class="collapse-header">Lớp học</h6>
+                        <a class="collapse-item" href="@Url.Action("Index", "LOPHOCs")">Danh sách lớp học</a>
+                        <a class="collapse-item" href="@Url.Action("Create", "CT_LOPHOC")">Thêm học viên vào lớp học</a>
                     </div>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "MONHOCs")">
+                    <i class="fa fa-user"></i>
+                    <span>Môn học</span>
+                </a>
             </li>
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
@@ -105,7 +111,7 @@
                 Công nợ
             </div>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="@Url.Action("Index", "HOCPHIs")">
                     <i class="fa fa-paperclip"></i>
                     <span>Học phí</span>
                 </a>
@@ -114,6 +120,22 @@
                 <a class="nav-link" href="charts.html">
                     <i class="fa fa-paperclip"></i>
                     <span>Lương giáo viên</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Phân quyền
+            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index", "ManageRole")">
+                    <i class="fa fa-ban"></i>
+                    <span>Quản lý quyền</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "ManageUser")">
+                    <i class="fa fa-users"></i>
+                    <span>Quản lý người dùng</span>
                 </a>
             </li>
         </ul>
@@ -131,13 +153,20 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
                                 <img class="img-profile rounded-circle" src="~/Areas/Admin/Content/img/boy.png" style="max-width: 60px">
-                                <span class="ml-2 d-none d-lg-inline text-white small">Maman Ketoprak</span>
+                                <span class="ml-2 d-none d-lg-inline text-white small">@User.Identity.Name</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">                               
-                                <a class="dropdown-item" href="login.html">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
+                                <ul class="dropdown-item">
+                                        @if (Request.IsAuthenticated)
+                                        {
+                                            using (Html.BeginForm("LogOff", "HomeAdmin", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <li><a href="javascript:document.getElementById('logoutForm').submit()" class="drop-text">Đăng xuất</a></li>      
+                                            }
+                                        }
+                                </ul>
+                                
                             </div>
                         </li>
                     </ul>

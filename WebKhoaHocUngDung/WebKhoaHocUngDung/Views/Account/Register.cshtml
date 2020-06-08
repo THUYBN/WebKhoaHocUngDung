@@ -42,22 +42,57 @@
                 <h3 class="editContent title-w3 mb-5 text-center text-wh font-weight-bold">Register Now</h3>
                 <form action="#" method="post">
                     <div class="form-group editContent">
-                        <label class="col-form-label editContent">Username</label>
-                        <input type="text" class="form-control" placeholder="your name" name="Name" required="">
-                    </div>
-                    <div class="form-group editContent">
                         <label class="col-form-label editContent">Email</label>
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         @*<input type="email" class="form-control" placeholder="loremipsum@email.com" name="Email" required="">*@
                     </div>
                     <div class="form-group editContent">
                         <label class="col-form-label editContent">Password</label>
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
                     </div>
                     <div class="form-group editContent">
                         <label class="col-form-label editContent">Confirm Password</label>
                         @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Họ tên</label>
+                        @Html.TextBoxFor(m => m.HoTen, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Ngày sinh</label>
+                        @Html.EditorFor(m => m.NgaySinh, new { @class = "form-control" })
+                        @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Giới tính</label>
+                        @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Hiện tại đang học lớp</label>
+                        @Html.TextBoxFor(m => m.Khoi, new { @class = "form-control" })
+                        @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Số điện thoại</label>
+                        @Html.TextBoxFor(m => m.SDT, new { @class = "form-control" })
+                        @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Số điện thoại PH</label>
+                        @Html.TextBoxFor(m => m.SDTPH, new { @class = "form-control" })
+                        @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
+                    </div>
+                    <div class="form-group editContent">
+                        <label class="col-form-label editContent">Địa chỉ</label>
+                        @Html.TextBoxFor(m => m.DiaChi, new { @class = "form-control" })
                         @*<input type="password" class="form-control" placeholder="*****" name="Password" required="">*@
                     </div>
                     <div class="sub-w3l my-3">

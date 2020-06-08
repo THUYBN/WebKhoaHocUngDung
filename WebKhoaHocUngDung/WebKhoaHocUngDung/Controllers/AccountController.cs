@@ -147,12 +147,20 @@ namespace WebKhoaHocUngDung.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, [Bind(Include = "MaHS,HoTen,NgaySinh,GioiTinh,Khoi,SDT,SDTPH,DiaChi,NgayVaoHoc,TinhTrang,ApplicationUser_Id")] HOCSINH hOCSINH)
         {
+            ApplicationDbContext db = new ApplicationDbContext();
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
+                hOCSINH.ApplicationUserId = user.Id;
+                hOCSINH.TinhTrang = true;
+                hOCSINH.NgayVaoHoc = DateTime.Today;
+
+                db.HOCSINHs.Add(hOCSINH);
+                db.SaveChanges();
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

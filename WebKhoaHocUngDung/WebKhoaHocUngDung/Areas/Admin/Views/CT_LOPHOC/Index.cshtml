@@ -1,0 +1,59 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebKhoaHocUngDung.Models.CT_LOPHOC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="color:blue" class="text-center"><b>DANH SÁCH HỌC VIÊN CỦA LỚP HỌC</b></h2>
+
+<br /><br />
+<div class="col-xl-12 col-lg-7 mb-4">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    Họ tên
+                </th>
+                <th>
+                    Ngày vào học
+                </th>
+                <th>
+                    Thao tác
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HOCSINH.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayVaoHoc)
+                </td>
+                <td>
+                    <li class="btn btn-sm btn-danger">@Html.ActionLink("Xóa", "Delete", new { id = item.MaHS })</li>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div>
+    <a href="@Url.Action("Index", "LOPHOCs")">Quay lại danh sách lớp học</a>
+</div>
+
+@*Create page link*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuPage li {
+        display: inline;
+    }
+</style>

@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNet.Identity.EntityFramework;
+
+@model IEnumerable<IdentityRole>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 style="color:blue"><b>QUẢN LÝ QUYỀN HẠN NGƯỜI DÙNG</b></h2>
+
+<div class="col-xl-12 col-lg-7 mb-4">
+
+    <div class="col-sm-6">
+
+        @Html.ActionLink("Tạo role", "Create", null, new { @class = "m-0 float-md-none btn btn-success btn-sm" })
+
+        <br /><br />
+
+        <table class="table align-items-center table-flush">
+
+            <thead class="thead-light">
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Tên quyền</th>
+
+                    <th>Thao tác</th>
+
+                </tr>
+
+            </thead>
+
+                @foreach (var item in Model)
+
+                {
+
+                    <tr>
+
+                        <td>@item.Id</td>
+
+                        <td>@item.Name</td>
+
+                        <td >
+                            <li class="btn btn-sm btn-danger">@Html.ActionLink("Xóa", "Delete", new { id = item.Id })</li>
+                        </td>
+
+                    </tr>
+
+                }
+
+        </table>
+
+    </div>
+
+</div>
+

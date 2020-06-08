@@ -1,0 +1,43 @@
+﻿@model WebKhoaHocUngDung.Models.CT_LOPHOC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CT_LOPHOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HOCSINH.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOCSINH.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOPHOC.TenLop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOPHOC.TenLop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayVaoHoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayVaoHoc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaCT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

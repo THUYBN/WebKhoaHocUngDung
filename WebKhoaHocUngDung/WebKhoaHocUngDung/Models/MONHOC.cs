@@ -1,4 +1,4 @@
-namespace WebKhoaHocUngDung.Models
+﻿namespace WebKhoaHocUngDung.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,6 +21,7 @@ namespace WebKhoaHocUngDung.Models
 
         public int MaKhoi { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống")]
         [StringLength(50)]
         public string TenMonHoc { get; set; }
 
